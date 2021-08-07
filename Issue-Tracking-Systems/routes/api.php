@@ -21,8 +21,29 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+
 //create this route for fetch all posts
 Route::get('/posts',function (Request $request){
     return Post :: all();
 });
 
+
+
+
+//create this route for add new posts (Me sadaha Post.php eke venas kirimata yamak ata)
+Route::post('/posts',function (){
+
+    //validation part
+    request()->validate([
+       'Title' => 'required' ,
+        'Content' => 'required'
+    ]);
+
+
+    return Post::create([
+        'Title' => request('Title'),
+        'Content' => request('Content')
+    ]);
+});
