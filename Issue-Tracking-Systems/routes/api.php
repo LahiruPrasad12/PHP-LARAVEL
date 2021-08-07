@@ -56,6 +56,13 @@ Route::post('/posts',function (){
 
 //create this route for update data
 Route::put('/posts/{post}', function (Post $post){
+
+    //validation part
+    request()->validate([
+        'Title' => 'required',
+        'Content' => 'required'
+    ]);
+
     $success = $post->update([
         'Title' => request('Title'),
         'Content' => request('Content')
