@@ -29,41 +29,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-//create this route for fetch all posts c
+//create this route for fetch all posts
 Route::get('/posts',[PostsApiController::class, 'getPosts']);
 
 
-//create this route for add new posts through controller (Me sadaha Post.php eke venas kirimata yamak ata)
+//create this route for add new posts (Me sadaha Post.php eke venas kirimata yamak ata)
 Route::post('/posts',[PostsApiController::class, 'addPosts']);
 
 
-
-
 //create this route for update data
-Route::put('/posts/{post}', function (Post $post){
-
-    //validation part
-    request()->validate([
-        'Title' => 'required',
-        'Content' => 'required'
-    ]);
-
-    $success = $post->update([
-        'Title' => request('Title'),
-        'Content' => request('Content')
-    ]);
-
-    if($success){
-        return [
-            'Success' => $success
-        ];
-    }else{
-        return [
-            'Success' => $success
-        ];
-    }
-
-});
+Route::put('/posts/{post}',[PostsApiController::class,'updatePost']);
 
 
 
