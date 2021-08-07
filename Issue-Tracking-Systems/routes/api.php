@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 //import posts
 use App\Models\Post;
+use App\Http\Controllers\PostsApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,10 +29,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-//create this route for fetch all posts
-Route::get('/posts',function (Request $request){
-    return Post :: all();
-});
+//create this route for fetch all posts and those posts come from index function which located PostsApiController
+Route::get('/posts',[PostsApiController::class, 'index']);
 
 
 
