@@ -37,7 +37,7 @@ Route::post('/posts',function (){
 
     //validation part
     request()->validate([
-       'Title' => 'required' ,
+       'Title' => 'required',
         'Content' => 'required'
     ]);
 
