@@ -44,7 +44,8 @@ class PostsApiController extends Controller
 
 
     //this controller is used to update post
-    public function updatePost(Post $post){
+    public function updatePost(Post $post): array
+    {
 
         //validation part
         request()->validate([
@@ -66,5 +67,22 @@ class PostsApiController extends Controller
                 'Success' => $success
             ];
         }
+    }
+
+
+
+
+
+
+
+
+    //this controller is used to delete post
+    public function deletePost(Post $post): array
+    {
+        $success = $post->delete();
+
+        return[
+            'Success'=>$success
+        ];
     }
 }

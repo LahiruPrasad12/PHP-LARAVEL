@@ -41,13 +41,5 @@ Route::post('/posts',[PostsApiController::class, 'addPosts']);
 Route::put('/posts/{post}',[PostsApiController::class,'updatePost']);
 
 
-
-
 //create this route for delete post
-Route::delete('/posts/{post}', function (Post $post){
-    $success = $post->delete();
-
-    return[
-      'Success'=>$success
-    ];
-});
+Route::delete('/posts/{post}', [PostsApiController::class,'deletePost']);
