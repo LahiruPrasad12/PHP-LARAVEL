@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostsApiController extends Controller
 {
-    public function index(){
+    public function getPosts(){
         return Post::all();
     }
 }

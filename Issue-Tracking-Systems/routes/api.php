@@ -30,7 +30,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 //create this route for fetch all posts and those posts come from index function which located PostsApiController
-Route::get('/posts',[PostsApiController::class, 'index']);
+Route::get('/posts',[PostsApiController::class, 'getPosts']);
 
 
 
