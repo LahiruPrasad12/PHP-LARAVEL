@@ -24,6 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+/*-------------------------------------------Routes For Crud API-------------------------------------------*/
+
+
 //create this route for fetch all posts
 Route::get('/posts',function (Request $request){
     return Post :: all();
@@ -46,4 +49,26 @@ Route::post('/posts',function (){
         'Title' => request('Title'),
         'Content' => request('Content')
     ]);
+});
+
+
+
+
+//create this route for update data
+Route::put('/posts/{post}', function (Post $post){
+    $success = $post->update([
+        'Title' => request('Title'),
+        'Content' => request('Content')
+    ]);
+
+    if($success){
+        return [
+            'Success' => $success
+        ];
+    }else{
+        return [
+            'Success' => $success
+        ];
+    }
+
 });
