@@ -27,6 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /*-------------------------------------------Routes For Crud API-------------------------------------------*/
 
 
+
 //create this route for fetch all posts
 Route::get('/posts',function (Request $request){
     return Post :: all();
@@ -78,4 +79,16 @@ Route::put('/posts/{post}', function (Post $post){
         ];
     }
 
+});
+
+
+
+
+//create this route for delete post
+Route::delete('/posts/{post}', function (Post $post){
+    $success = $post->delete();
+
+    return[
+      'Success'=>$success
+    ];
 });
