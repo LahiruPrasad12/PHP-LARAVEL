@@ -29,27 +29,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-//create this route for fetch all posts and those posts come from index function which located PostsApiController
+//create this route for fetch all posts c
 Route::get('/posts',[PostsApiController::class, 'getPosts']);
 
 
-
-
-//create this route for add new posts (Me sadaha Post.php eke venas kirimata yamak ata)
-Route::post('/posts',function (){
-
-    //validation part
-    request()->validate([
-       'Title' => 'required',
-        'Content' => 'required'
-    ]);
-
-
-    return Post::create([
-        'Title' => request('Title'),
-        'Content' => request('Content')
-    ]);
-});
+//create this route for add new posts through controller (Me sadaha Post.php eke venas kirimata yamak ata)
+Route::post('/posts',[PostsApiController::class, 'addPosts']);
 
 
 
